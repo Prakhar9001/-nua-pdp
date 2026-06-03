@@ -1,8 +1,0 @@
-Complete Nua PDP with bonus features
-
-- 15 unit tests: VariantSelector, QuantityPicker, AddToCartButton (sold-out, loading, success, failure, retry)
-- mockAddToCart moved to src/api/mockCart.ts with 30% random failure simulation
-- AddToCartButton error state: inline alert + 'Try Again' label, clears on retry
-- vite.config.ts: VITEST-guarded CSS mock plugin so production build includes real SCSS
-- vercel.json configured for Vite deployment
-
