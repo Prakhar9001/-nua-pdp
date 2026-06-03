@@ -1,0 +1,100 @@
+@use '../../styles/variables' as *;
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+// Primary image
+.gallery__primary {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 72vh;   // prevents the image swallowing the viewport on short phones
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background-color: $color-primary-light;
+  border: 1px solid $color-border;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+    display: block;
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+// Thumbnails row
+.gallery__thumbnails {
+  display: flex;
+  flex-direction: row;
+  gap: $space-sm;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: $space-xs;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.gallery__thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid $color-border;
+  padding: 0;
+  background: none;
+  transition: border-color $transition-base, transform $transition-base;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.gallery__thumb--active {
+  border-color: $color-primary;
+  transform: scale(1.05);
+}
+
+// Dot indicators — mobile only
+.gallery__dots {
+  display: flex;
+  justify-content: center;
+  gap: $space-xs;
+  margin-top: $space-xs;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.gallery__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+  background-color: $color-border;
+  cursor: pointer;
+  transition: background-color $transition-base, transform $transition-base;
+}
+
+.gallery__dot--active {
+  background-color: $color-primary;
+  transform: scale(1.3);
+}

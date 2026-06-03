@@ -1,0 +1,96 @@
+@use '../../styles/variables' as *;
+
+.accordion {
+  border-top: 1px solid $color-border;
+}
+
+.accordion__item {
+  border-bottom: 1px solid $color-border;
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-md 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $font-family;
+  text-align: left;
+  color: $color-text-primary;
+
+  &:hover .accordion__title {
+    color: $color-primary;
+  }
+}
+
+.accordion__title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+}
+
+.accordion__icon {
+  flex-shrink: 0;
+  color: $color-text-muted;
+  transition: transform 0.25s ease;
+}
+
+.accordion__icon--open {
+  transform: rotate(180deg);
+}
+
+.accordion__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion__body--open {
+  max-height: 800px;
+}
+
+.accordion__content {
+  padding-bottom: $space-lg;
+}
+
+// Description text
+.accordion__text {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  line-height: 1.7;
+}
+
+// Specifications table
+.accordion__specs {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accordion__specs-key {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-weight: $font-weight-medium;
+  padding: $space-sm $space-md $space-sm 0;
+  width: 45%;
+  vertical-align: top;
+  border-bottom: 1px solid $color-border;
+}
+
+.accordion__specs-value {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  padding: $space-sm 0;
+  border-bottom: 1px solid $color-border;
+  vertical-align: top;
+}
+
+// Reviews list
+.accordion__reviews {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}

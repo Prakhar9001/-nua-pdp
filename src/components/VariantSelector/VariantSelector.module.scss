@@ -1,0 +1,109 @@
+@use '../../styles/variables' as *;
+
+.variant-selector {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.variant-selector__section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.variant-selector__label {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+
+  strong {
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Colour swatches
+.variant-selector__swatches {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.variant-selector__swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  box-shadow: 0 0 0 2px $color-background, 0 0 0 3px $color-border;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: 0 0 0 2px $color-background, 0 0 0 4px $color-primary;
+  }
+}
+
+.variant-selector__swatch--active {
+  box-shadow: 0 0 0 2px $color-background, 0 0 0 4px $color-primary;
+}
+
+// Size buttons
+.variant-selector__sizes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.variant-selector__size-btn {
+  width: 52px;
+  height: 40px;
+  padding: 0;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: none;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  cursor: pointer;
+  transition: border-color $transition-base, background-color $transition-base, color $transition-base;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+  }
+}
+
+.variant-selector__size-btn--active {
+  border-color: $color-primary;
+  background-color: $color-primary;
+  color: $color-white;
+
+  // Overrides --low-stock amber text when a low-stock size is selected
+  &.variant-selector__size-btn--low-stock {
+    color: $color-white;
+    border-color: $color-primary;
+  }
+}
+
+.variant-selector__size-btn--sold-out {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  pointer-events: none;
+}
+
+.variant-selector__size-btn--low-stock {
+  border-color: $color-warning;
+  color: $color-warning;
+}
+
+// Low stock label under sizes
+.variant-selector__low-stock-label {
+  font-size: $font-size-xs;
+  color: $color-warning;
+  font-weight: $font-weight-medium;
+  margin-top: $space-xs;
+}

@@ -1,0 +1,47 @@
+@use '../../styles/variables' as *;
+
+.toast {
+  position: fixed;
+  bottom: $space-lg;
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(100% + $space-lg));
+  z-index: 999;
+
+  padding: $space-sm $space-lg;
+  border-radius: $radius-full;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: transform $transition-slow, opacity $transition-slow;
+
+  @media (min-width: 768px) {
+    left: auto;
+    right: $space-xl;
+    bottom: auto;
+    top: $space-xl;
+    transform: translateX(0) translateY(-$space-xl);
+  }
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+
+  @media (min-width: 768px) {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.toast--success {
+  background-color: $color-success;
+  color: $color-white;
+}
+
+.toast--error {
+  background-color: $color-primary;
+  color: $color-white;
+}

@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  color: $color-text-primary;
+  background-color: $color-background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: 1.25;
+}

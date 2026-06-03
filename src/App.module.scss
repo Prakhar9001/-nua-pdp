@@ -1,0 +1,52 @@
+@use './styles/variables' as *;
+
+// Page shell
+.page {
+  min-height: 100vh;
+  background-color: $color-background;
+}
+
+// PDP layout grid
+.pdp {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space-lg;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    column-gap: $space-2xl;
+    row-gap: 0;
+    align-items: start;
+    padding: $space-xl $space-lg;
+  }
+}
+
+.pdp__gallery {
+  // intentionally not sticky — sticky caused the gallery to overlap
+  // the full-width accordion section when scrolling
+}
+
+.pdp__info {
+  @media (max-width: 767px) {
+    margin-top: $space-xl;
+  }
+}
+
+.pdp__details {
+  grid-column: 1 / -1;
+  margin-top: $space-2xl;
+  padding-top: $space-xl;
+  border-top: 1px solid $color-border;
+}
+
+// Loading / error state
+.state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: $font-family;
+  color: $color-text-muted;
+  font-size: $font-size-base;
+}
