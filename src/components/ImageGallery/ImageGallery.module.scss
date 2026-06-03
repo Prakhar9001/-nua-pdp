@@ -61,15 +61,16 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: filter $transition-base;
   }
 
-  &:hover {
-    border-color: $color-primary;
+  &:hover img {
+    filter: brightness(0.82);
   }
 }
 
 .gallery__thumb--active {
-  border-color: $color-primary;
+  border-color: $color-border;
   transform: scale(1.05);
 }
 
