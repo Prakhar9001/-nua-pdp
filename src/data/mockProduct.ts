@@ -19,7 +19,7 @@ export const mockVariants: ProductVariant[] = [
 ];
 
 export const colourImages: Record<string, string[]> = {
-  'Light Pink':   ['/underwear-light-pink.webp'],
-  'Lemon Green':  ['/underwear-lemon-green.webp'],
-  'Light Purple': ['/underwear-light-purple.webp'],
+  'Light Pink':   ['/underwear-light-pink.webp',   '/underwear-lemon-green.webp',  '/underwear-light-purple.webp'],
+  'Lemon Green':  ['/underwear-lemon-green.webp',  '/underwear-light-purple.webp', '/underwear-light-pink.webp'],
+  'Light Purple': ['/underwear-light-purple.webp', '/underwear-light-pink.webp',   '/underwear-lemon-green.webp'],
 };
