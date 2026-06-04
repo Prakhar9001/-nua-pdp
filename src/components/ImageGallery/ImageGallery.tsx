@@ -24,21 +24,19 @@ export function ImageGallery({ images, productName }: ImageGalleryProps) {
         />
       </div>
 
-      {images.length > 1 && (
-        <div className={styles.gallery__thumbnails}>
-          {images.map((src, i) => (
-            <button
-              key={src}
-              className={`${styles.gallery__thumb} ${i === activeIndex ? styles['gallery__thumb--active'] : ''}`}
-              onClick={() => setActiveIndex(i)}
-              aria-label={`View image ${i + 1}`}
-              aria-pressed={i === activeIndex}
-            >
-              <img src={src} alt={`${productName} view ${i + 1}`} loading="lazy" />
-            </button>
-          ))}
-        </div>
-      )}
+      <div className={styles.gallery__thumbnails}>
+        {images.map((src, i) => (
+          <button
+            key={src}
+            className={`${styles.gallery__thumb} ${i === activeIndex ? styles['gallery__thumb--active'] : ''}`}
+            onClick={() => setActiveIndex(i)}
+            aria-label={`View image ${i + 1}`}
+            aria-pressed={i === activeIndex}
+          >
+            <img src={src} alt={`${productName} view ${i + 1}`} loading="lazy" />
+          </button>
+        ))}
+      </div>
 
       {images.length > 1 && (
         <div className={styles.gallery__dots} aria-hidden="true">
